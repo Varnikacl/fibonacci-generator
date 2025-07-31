@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fibonacci Generator</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      padding: 8px;
+      margin: 10px;
+    }
+    button {
+      padding: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fibonacci Series Generator</h1>
+  <p>Enter how many Fibonacci numbers to generate:</p>
+  
+  <input type="number" id="count" placeholder="Enter a number">
+  <button onclick="generateFibonacci()">Generate</button>
+  
+  <div id="result"></div>
+
+  <script>
+    function generateFibonacci() {
+      let n = parseInt(document.getElementById('count').value);
+      let fib = [0, 1];
+      
+      for (let i = 2; i < n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+      }
+
+      document.getElementById('result').innerText = fib.slice(0, n).join(', ');
+    }
+  </script>
+
+</body>
+</html>
